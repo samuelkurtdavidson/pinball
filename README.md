@@ -10,9 +10,8 @@ No previous installations is required to play the game, just download and execut
 ## General Controls
 
 
-##The Team
+## The Team
 
-![Sam Photo](https://avatars3.githubusercontent.com/u/36154071?s=460&v=4)
 [Sam Davidson](https://github.com/samuelkurtdavidson)
-![Jacobo Photo](https://avatars0.githubusercontent.com/u/26726417?s=460&v=4)
+
 [Jacobo Galofre](https://github.com/sherzock)
