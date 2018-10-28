@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
+#include "ModulePlayer.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -350,10 +351,29 @@ update_status ModuleSceneIntro::Update()
 	// All draw functions ------------------------------------------------------
 	p2List_item<PhysBody*>* c = circles.getFirst();
 
+	App->player->ball->GetPosition(pos.x, pos.y);
+		if (pos.y > 535) {
+			if (App->player->lives > 0)
+			{
+				App->player->lives--;
+				SetBall(321,530);
+			}else
+			{
+				
+			}
+	}
+
 	return UPDATE_CONTINUE;
 }
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	App->audio->PlayFx(bonus_fx);
+}
+
+void ModuleSceneIntro::SetBall(int x, int y)
+{
+	App->player->ball = App->physics->CreateCircle(x, y, 7, b2_dynamicBody);
+	
+	
 }

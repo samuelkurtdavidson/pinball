@@ -403,5 +403,5 @@ void ModulePhysics::BeginContact(b2Contact* contact)
 		physA->listener->OnCollision(physA, physB);
 
 	if(physB && physB->listener != NULL)
-		physB->listener->OnCollision(physB, physA);
+	physB->listener->OnCollision(physB, physA);
 }

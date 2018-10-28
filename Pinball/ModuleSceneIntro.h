@@ -18,6 +18,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
+	void SetBall(int x, int y);
 
 public:
 	p2List<PhysBody*> circles;
@@ -35,4 +36,5 @@ public:
 	SDL_Texture* rail3;
 	SDL_Texture* shootsunny;
 	uint bonus_fx;
+	iPoint pos;
 };
