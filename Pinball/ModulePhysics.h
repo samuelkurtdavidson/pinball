@@ -19,6 +19,8 @@ public:
 	PhysBody() : listener(NULL), body(NULL)
 	{}
 
+
+
 	void GetPosition(int& x, int &y) const;
 	float GetRotation() const;
 	bool Contains(int x, int y) const;
@@ -26,6 +28,7 @@ public:
 
 public:
 	int width, height;
+	bool active = false;
 	b2Body* body;
 	Module* listener;
 };

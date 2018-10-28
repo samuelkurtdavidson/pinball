@@ -18,6 +18,11 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
+	void SetScores();
+	void UpdateScores();
+
+	p2List<PhysBody*> score_list;
+	bool scored = false;
 
 public:
 	p2List<PhysBody*> circles;
