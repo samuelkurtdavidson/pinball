@@ -25,6 +25,9 @@ public:
 	p2List<PhysBody*> score_list;
 	bool scored = false;
 
+	char* player_lives;
+	char* player_score;
+
 public:
 	p2List<PhysBody*> circles;
 	p2List<PhysBody*> boxes;

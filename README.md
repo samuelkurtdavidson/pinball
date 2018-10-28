@@ -7,8 +7,15 @@ physics engine.
 ## Installation
 No previous installations is required to play the game, just download and execute the .exe file *Pinball2D* from the game folder.
 
-## General Controls
+## General Controls ----
 
+left kicker - LEFT arrow key
+right kicker - RIGHT arrow key
+ball spring - DOWN arrow key
+
+### Debug Options ----
+
+No collision mode - F1 key
 
 ## The Team
 

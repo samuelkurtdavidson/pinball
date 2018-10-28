@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
 #include "ModulePlayer.h"
+#include "ModuleFonts.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -389,6 +390,12 @@ update_status ModuleSceneIntro::Update()
 
 	// Prepare for raycast ------------------------------------------------------
 
+	//sprintf_s(player_lives, 10, "%i", App->player->lives);
+
+	//sprintf_s(player_score, 10, "%7d", App->player->score);
+
+
+	App->fonts->BlitText(0, 0, 0, player_score, 1.0f);
 	iPoint mouse;
 	mouse.x = App->input->GetMouseX();
 	mouse.y = App->input->GetMouseY();
