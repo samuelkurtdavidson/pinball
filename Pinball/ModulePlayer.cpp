@@ -114,23 +114,46 @@ void ModulePlayer::OnCollision(PhysBody * body_A, PhysBody * body_B)
 }
 
 void ModulePlayer::rightkicker() {
-
 	kickerright = App->physics->CreateRectangle(211, 519, 50, 10, b2_dynamicBody, 1.2f);
 	kickerrightpivot = App->physics->CreateCircle(210, 515, 6, b2_staticBody);
+
 	b2RevoluteJointDef revoluteJointDef;
+
 	revoluteJointDef.bodyA = kickerright->body;
 	revoluteJointDef.bodyB = kickerrightpivot->body;
+
 	kickerright->body->SetGravityScale(10.0f);
+
+
 	revoluteJointDef.localAnchorA.Set(PIXEL_TO_METERS(15), 0);
 	revoluteJointDef.localAnchorB.Set(0, 0);
 	revoluteJointDef.collideConnected = false;
+
 	revoluteJointDef.enableLimit = true;
 	revoluteJointDef.upperAngle = 35 * DEGTORAD;
 	revoluteJointDef.lowerAngle = -30 * DEGTORAD;
+
 	revoluteJointDef.motorSpeed = -2000.0f * DEGTORAD;
 	revoluteJointDef.maxMotorTorque = 1500.0f;
 	revoluteJointDef.enableMotor = false;
+
 	kickerrightjoint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&revoluteJointDef);
+	////kickerright = App->physics->CreateRectangle(211, 519, 50, 10, b2_dynamicBody, 1.2f);
+	//kickerrightpivot = App->physics->CreateCircle(300, 100, 6, b2_staticBody);
+	//b2RevoluteJointDef revoluteJointDef;
+	////revoluteJointDef.bodyA = kickerright->body;
+	//revoluteJointDef.bodyB = kickerrightpivot->body;
+	////kickerright->body->SetGravityScale(10.0f);
+	//revoluteJointDef.localAnchorA.Set(PIXEL_TO_METERS(15), 0);
+	//revoluteJointDef.localAnchorB.Set(0, 0);
+	//revoluteJointDef.collideConnected = false;
+	//revoluteJointDef.enableLimit = true;
+	//revoluteJointDef.upperAngle = 35 * DEGTORAD;
+	//revoluteJointDef.lowerAngle = -30 * DEGTORAD;
+	//revoluteJointDef.motorSpeed = -2000.0f * DEGTORAD;
+	//revoluteJointDef.maxMotorTorque = 1500.0f;
+	//revoluteJointDef.enableMotor = false;
+	//kickerrightjoint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&revoluteJointDef);
 }
 
 void ModulePlayer::pusherfunc() {
