@@ -337,7 +337,8 @@ void ModuleSceneIntro::UpdateScores()
 {
 	if (scored)
 	{
-		App->player->score += 100;
+		App->player->score += 1;
+		scored = false;
 	}
 
 	for (p2List_item<PhysBody*>* score = score_list.getFirst(); score != nullptr; score = score->next)
@@ -390,12 +391,6 @@ update_status ModuleSceneIntro::Update()
 
 	// Prepare for raycast ------------------------------------------------------
 
-	//sprintf_s(player_lives, 10, "%i", App->player->lives);
-
-	//sprintf_s(player_score, 10, "%7d", App->player->score);
-
-
-	
 	iPoint mouse;
 	mouse.x = App->input->GetMouseX();
 	mouse.y = App->input->GetMouseY();
@@ -422,10 +417,10 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	if (bodyB) {
 		p2List_item<PhysBody*>* scores;
-		scores = App->scene_intro->score_list.getFirst();
+		scores = score_list.getFirst();
 
 		for (scores; scores != nullptr; scores = scores->next) {
-			if (scores->data == bodyB) {
+			if (scores->data == bodyB || scores->data == bodyA) {
 				scores->data->active = true;
 			}
 		}
