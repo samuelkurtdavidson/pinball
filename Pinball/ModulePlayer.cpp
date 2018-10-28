@@ -94,6 +94,10 @@ update_status ModulePlayer::Update()
 	ball->GetPosition(position.x, position.y);
 	App->renderer->Blit(textureball, position.x, position.y, NULL, 1.0f, 1.0f, ball->GetRotation());
 
+	//pusher Draw--------------------
+	pusher->GetPosition(position.x, position.y);
+	App->renderer->Blit(TexturePusher, position.x -10, position.y - 18, NULL, 1.0f, 1.0f, ball->GetRotation());
+
 
 	return UPDATE_CONTINUE;
 }
