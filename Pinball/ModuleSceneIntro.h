@@ -34,5 +34,10 @@ public:
 	SDL_Texture* rail2;
 	SDL_Texture* rail3;
 	SDL_Texture* shootsunny;
+	SDL_Texture* arrow;
+	SDL_Texture* arrowcover1;
+	SDL_Texture* arrowcover2;
+	SDL_Texture* arrowcover3;
+
 	uint bonus_fx;
 };

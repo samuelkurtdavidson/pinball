@@ -33,6 +33,10 @@ bool ModuleSceneIntro::Start()
 	rail2 = App->textures->Load("pinball/path.png");
 	rail3 = App->textures->Load("pinball/rail3.png");
 	shootsunny = App->textures->Load("pinball/shoot_sunny.png");
+	//arrow = App->textures->Load("pinball/arrow.png");
+	//arrowcover1 = App->textures->Load("pinball/arrow_cover1.png");
+	//arrowcover2 = App->textures->Load("pinball/arrowcover2.png");
+	//arrowcover3 = App->textures->Load("pinball/arrowcover3.png");
 
 
 	if (!background_created)
@@ -321,6 +325,10 @@ bool ModuleSceneIntro::CleanUp()
 	App->textures->Unload(rail2);
 	App->textures->Unload(rail3);
 	App->textures->Unload(shootsunny);
+	//App->textures->Unload(arrow);
+	//->textures->Unload(arrowcover1);
+	//App->textures->Unload(arrowcover2);
+	//App->textures->Unload(arrowcover3);
 	return true;
 }
 
@@ -339,6 +347,10 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(rail3, 253, 190, NULL, 1.0f);
 		App->renderer->Blit(shootsunny, 0, 15, NULL, 1.0f);
 		App->renderer->Blit(house, 30, 20, NULL, 1.0f);
+		//App->renderer->Blit(arrow, 100, 235, NULL, 1.0f, 315);
+		//App->renderer->Blit(arrowcover1, 30, 20, NULL, 1.0f);
+		//App->renderer->Blit(arrowcover2, 30, 20, NULL, 1.0f);
+		//App->renderer->Blit(arrowcover3, 30, 20, NULL, 1.0f);
 	}
 
 	// Prepare for raycast ------------------------------------------------------
