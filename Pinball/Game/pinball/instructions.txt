@@ -1,0 +1,6 @@
+add SetScores();
+add UpdateScores();
+
+add code from OnCollision in SceneIntro.cpp
+
+llama a SetScores en Start() y UpdateScores() en Update();
