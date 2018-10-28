@@ -26,6 +26,7 @@ public:
 
 public:
 	int width, height;
+	bool active = false;
 	b2Body* body;
 	Module* listener;
 };
