@@ -60,83 +60,161 @@ bool ModuleSceneIntro::Start()
 
 
 	};
+
+	for (int i = 0; i < 50; ++i)
+	{
+		map1[i] += 6;
+	}
+
 	App->physics->CreateChain(0, 0, map1, 50, 0);
 
-	//int map2[0] = {
-	//	
-	//};
-	//App->physics->CreateChain(0, 0, map2, 0, 0);
+	int map2[60] = {
+		44, 251,
+		37, 224,
+		34, 203,
+		33, 190,
+		33, 164,
+		40, 123,
+		52, 97,
+		78, 67,
+		101, 51,
+		135, 38,
+		147, 38,
+		162, 54,
+		162, 85,
+		173, 104,
+		173, 158,
+		114, 204,
+		108, 204,
+		98, 184,
+		99, 168,
+		108, 156,
+		108, 142,
+		97, 137,
+		88, 140,
+		76, 157,
+		72, 168,
+		72, 185,
+		77, 203,
+		87, 220,
+		87, 224,
+		47, 254
 
-	//int map3[0] = {
-	//	
-	//};
-	//App->physics->CreateChain(0, 0, map3, 0, 0);
-
-	//int map4[0] = {
-	//	
-	//};
-
-	//App->physics->CreateChain(0, 0, map4, 0, 0);
-
-	//int map5[0] = {
-	//	
-	//};
-
-	//App->physics->CreateChain(0, 0, map5, 0, 0);
-	//int map6[0] = {
-	//	
-	//};
-	//App->physics->CreateChain(0, 0, map6, 0, 0);
-
-	//int map7[0] = {
-	//	
-	//};
-	//App->physics->CreateChain(0, 0, map7, 0, 0);
-
-
-	//over joint
-	int map8[8] = {
-		73, 420,
-		72, 454,
-		97, 469,
-		77, 430
 	};
-	App->physics->CreateChain(0, 0, map8, 8, 1.5f);
 
-	int map9[8] = {
-		222, 467,
-		247, 418,
-		248, 458,
-		232, 463
-	};
-	App->physics->CreateChain(0, 0, map9, 8, 1.5f);
+	for (int i = 0; i < 60; ++i)
+	{
+		map2[i] += 6;
+	}
 
-	//over volt
-	int map10[8] = {
-		132, 99,
-		141, 93,
-		140, 120,
-		135, 128
-	};
-	App->physics->CreateChain(0, 0, map10, 8, 0);
+	App->physics->CreateChain(0, 0, map2, 60, 0);
 
-	int map11[8] = {
-		177, 88,
-		184, 88,
-		185, 112,
-		177, 112
+	int map3[32] = {
+		241, 125,
+		243, 60,
+		248, 53,
+		252, 55,
+		280, 83,
+		295, 109,
+		301, 130,
+		302, 144,
+		303, 164,
+		300, 180,
+		294, 194,
+		290, 198,
+		287, 197,
+		275, 170,
+		262, 150,
+		242, 127
+
 	};
-	App->physics->CreateChain(0, 0, map11, 8, 0);
+
+	for (int i = 0; i < 32; ++i)
+	{
+		map3[i] += 6;
+	}
+
+	App->physics->CreateChain(0, 0, map3, 32, 0);
+
+	int map4[30] = {
+		187, 217,
+		205, 140,
+		235, 158,
+		262, 188,
+		281, 221,
+		284, 225,
+		257, 259,
+		253, 259,
+		216, 240,
+		220, 230,
+		220, 223,
+		213, 213,
+		208, 212,
+		200, 212,
+		192, 218
+
+	};
+
+	for (int i = 0; i < 30; ++i)
+	{
+		map4[i] += 6;
+	}
+
+	App->physics->CreateChain(0, 0, map4, 30, 0);
+
+	int map5[22] = {
+		306, 558,
+		306, 296,
+		303, 296,
+		278, 301,
+		264, 333,
+		262, 344,
+		262, 381,
+		267, 394,
+		296, 420,
+		298, 421,
+		298, 558
+
+	};
+
+	for (int i = 0; i < 22; ++i)
+	{
+		map5[i] += 6;
+	}
+
+	App->physics->CreateChain(0, 0, map5, 22, 0);
+
+	int map6[10] = {
+		275, 558,
+		275, 532,
+		272, 528,
+		267, 530,
+		209, 558
+	};
+
+	for (int i = 0; i < 10; ++i)
+	{
+		map6[i] += 6;
+	}
+
+	App->physics->CreateChain(0, 0, map6, 10, 0);
+
+	/*int map7[0] = {
+		
+	};
+	App->physics->CreateChain(0, 0, map7, 0, 0);*/
+
+
 	//diglet
-	App->physics->CreateBouncer(60, 365, 15, 1.4f);
-	App->physics->CreateBouncer(268, 365, 15, 1.4f);
-	//voltorb
-	App->physics->CreateBouncer(135, 159, 15, 1.4f);
-	App->physics->CreateBouncer(183, 139, 15, 1.4f);
-	App->physics->CreateBouncer(170, 199, 15, 1.4f);
+	//App->physics->CreateBouncer(60, 365, 15, 1.4f);
+	//App->physics->CreateBouncer(268, 365, 15, 1.4f);
+	////voltorb
+	//App->physics->CreateBouncer(135, 159, 15, 1.4f);
+	//App->physics->CreateBouncer(183, 139, 15, 1.4f);
+	//App->physics->CreateBouncer(170, 199, 15, 1.4f);
 
-	App->physics->CreateBouncer(27, 520, 15, 3.8f);
-	App->physics->CreateBouncer(290, 518, 15, 3.8f);
+	//App->physics->CreateBouncer(27, 520, 15, 3.8f);
+	//App->physics->CreateBouncer(290, 518, 15, 3.8f);
 
 	return ret;
 }
