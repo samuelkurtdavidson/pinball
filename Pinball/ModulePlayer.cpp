@@ -85,10 +85,10 @@ update_status ModulePlayer::Update()
 	//Flippers Draw------
 
 	kickerright->GetPosition(position.x, position.y);
-	App->renderer->Blit(TextureRkicker, position.x, position.y, NULL, 1.0f, 1.0f, kickerright->GetRotation());
+	App->renderer->Blit(TextureRkicker, position.x, position.y, NULL, 1.0f, kickerright->GetRotation(), PIXEL_TO_METERS(0), PIXEL_TO_METERS(0));
 
 	kickerleft->GetPosition(position.x, position.y);
-	App->renderer->Blit(textureLKicker, position.x, position.y, NULL, 1.0f, 1.0f, kickerleft->GetRotation());
+	App->renderer->Blit(textureLKicker, position.x, position.y, NULL, 1.0f, kickerleft->GetRotation(), PIXEL_TO_METERS(0), PIXEL_TO_METERS(0));
 
 	//Ball Draw--------------------
 	ball->GetPosition(position.x, position.y);
@@ -97,7 +97,6 @@ update_status ModulePlayer::Update()
 	//pusher Draw--------------------
 	pusher->GetPosition(position.x, position.y);
 	App->renderer->Blit(TexturePusher, position.x -10, position.y - 18, NULL, 1.0f, 1.0f, ball->GetRotation());
-
 
 	return UPDATE_CONTINUE;
 }
@@ -115,8 +114,8 @@ void ModulePlayer::OnCollision(PhysBody * body_A, PhysBody * body_B)
 
 void ModulePlayer::rightkicker() {
 
-	kickerright = App->physics->CreateRectangle(211, 519, 50, 10, b2_dynamicBody, 1.2f);
-	kickerrightpivot = App->physics->CreateCircle(300, 100, 6, b2_staticBody);
+	kickerright = App->physics->CreateRectangle(205, 533, 50, 10, b2_dynamicBody, 1.2f);
+	kickerrightpivot = App->physics->CreateCircle(205, 533, 6, b2_staticBody);
 	b2RevoluteJointDef revoluteJointDef;
 	revoluteJointDef.bodyA = kickerright->body;
 	revoluteJointDef.bodyB = kickerrightpivot->body;
@@ -156,7 +155,7 @@ void ModulePlayer::pusherfunc() {
 void ModulePlayer::leftkicker() {
 
 	kickerleft = App->physics->CreateRectangle(142, 483, 50, 10, b2_dynamicBody, 1.2f);//210 741
-	kickerleftpivot = App->physics->CreateCircle(108, 513, 7, b2_staticBody);
+	kickerleftpivot = App->physics->CreateCircle(108, 533, 7, b2_staticBody);
 	b2RevoluteJointDef revoluteJointDef;
 	revoluteJointDef.bodyA = kickerleft->body;
 	revoluteJointDef.bodyB = kickerleftpivot->body;
