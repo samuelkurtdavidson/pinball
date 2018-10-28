@@ -30,7 +30,7 @@ public:
 	SDL_Texture* colliderRight;
 	SDL_Texture* tube1;
 	SDL_Texture* tube2;
-	SDL_Texture* rail1;
+	SDL_Texture* house;
 	SDL_Texture* rail2;
 	SDL_Texture* rail3;
 	SDL_Texture* shootsunny;

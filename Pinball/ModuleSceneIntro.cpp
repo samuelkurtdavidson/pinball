@@ -29,8 +29,8 @@ bool ModuleSceneIntro::Start()
 	colliderRight = App->textures->Load("pinball/colliderright.png");
 	tube1 = App->textures->Load("pinball/tube1.png");
 	tube2 = App->textures->Load("pinball/tube2.png");
-	rail1 = App->textures->Load("pinball/rail1.png");
-	rail2 = App->textures->Load("pinball/rail2.png");
+	house = App->textures->Load("pinball/house.png");
+	rail2 = App->textures->Load("pinball/path.png");
 	rail3 = App->textures->Load("pinball/rail3.png");
 	shootsunny = App->textures->Load("pinball/shoot_sunny.png");
 
@@ -317,7 +317,7 @@ bool ModuleSceneIntro::CleanUp()
 	App->textures->Unload(colliderRight);
 	App->textures->Unload(tube1);
 	App->textures->Unload(tube2);
-	App->textures->Unload(rail1);
+	App->textures->Unload(house);
 	App->textures->Unload(rail2);
 	App->textures->Unload(rail3);
 	App->textures->Unload(shootsunny);
@@ -335,10 +335,10 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(colliderRight, 220, 440, NULL, 1.0f);
 		App->renderer->Blit(tube1, 220, 100, NULL, 1.0f);
 		App->renderer->Blit(tube2, 220, 100, NULL, 1.0f);
-		App->renderer->Blit(rail1, 30, 20, NULL, 1.0f);
-		App->renderer->Blit(rail2, 30, 20, NULL, 1.0f);
+		App->renderer->Blit(rail2, 204, 67, NULL, 1.0f);
 		App->renderer->Blit(rail3, 253, 190, NULL, 1.0f);
 		App->renderer->Blit(shootsunny, 0, 15, NULL, 1.0f);
+		App->renderer->Blit(house, 30, 20, NULL, 1.0f);
 	}
 
 	// Prepare for raycast ------------------------------------------------------
