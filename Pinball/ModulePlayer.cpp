@@ -8,6 +8,7 @@
 #include "ModuleTextures.h"
 #include "ModuleAudio.h"
 #include "ModuleFonts.h"
+#include <cstring>
 
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -32,7 +33,7 @@ bool ModulePlayer::Start()
 	pusherfunc();
 	ballposition(PLAYER_POS_X, PLAYER_POS_Y);
 	hitsound = App->audio->LoadFx("pinball/points.wav");
-	fontscore = App->fonts->Load("fontnumbers.png", "0123456789", 1);
+	fontscore = App->fonts->Load("pinball/fontnumbers.png", "0123456789", 1);
 
 	return true;
 }
@@ -102,7 +103,8 @@ update_status ModulePlayer::Update()
 	App->renderer->Blit(TexturePusher, position.x -10, position.y - 18, NULL, 1.0f, 1.0f, ball->GetRotation());
 
 	//sprintf
-	sprintf_s(scoreText, 10, "%7d", playerscore);
+	
+	sprintf_s(scoreText, 10, "%d", score);
 	App->fonts->BlitText(97, 49, fontscore, scoreText);
 
 	return UPDATE_CONTINUE;

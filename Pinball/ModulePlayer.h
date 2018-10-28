@@ -33,17 +33,14 @@ public:
 	iPoint position;
 	
 	PhysBody* ball;
-	int score;
+	uint score;
 
 	//score
-	uint playerscore;
 	uint highScore;
 
 
 	int fontscore = -1;
-	int ballUsed = -1;
 	char scoreText[10];
-	char ballstext[10];
 
 private:
 

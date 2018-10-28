@@ -395,7 +395,7 @@ update_status ModuleSceneIntro::Update()
 	//sprintf_s(player_score, 10, "%7d", App->player->score);
 
 
-	App->fonts->BlitText(0, 0, 0, player_score, 1.0f);
+	
 	iPoint mouse;
 	mouse.x = App->input->GetMouseX();
 	mouse.y = App->input->GetMouseY();
