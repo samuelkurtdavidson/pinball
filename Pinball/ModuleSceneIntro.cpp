@@ -199,10 +199,75 @@ bool ModuleSceneIntro::Start()
 
 	App->physics->CreateChain(0, 0, map6, 10, 0);
 
-	/*int map7[0] = {
-		
+	int map7[10] = {
+		31, 559,
+		31, 531,
+		32, 530,
+		39, 530,
+		98, 559
 	};
-	App->physics->CreateChain(0, 0, map7, 0, 0);*/
+
+	for (int i = 0; i < 10; ++i)
+	{
+		map7[i] += 6;
+	}
+
+	App->physics->CreateChain(0, 0, map7, 10, 0);
+
+	int map8[16] = {
+		69, 445,
+		98, 495,
+		98, 499,
+		97, 500,
+		92, 500, 
+		62, 483,
+		62, 445,
+		64, 442
+
+	};
+
+	App->physics->CreateChain(0, 0, map8, 16, 0);
+
+	int map9[18] = {
+		222, 494,
+		252, 443,
+		253, 442,
+		256, 442,
+		258, 444,
+		258, 483,
+		256, 486,
+		229, 500,
+		223, 500
+	};
+
+	App->physics->CreateChain(0, 0, map9, 18, 0);
+
+	int map10[16] = {
+		96, 530,
+		38, 503,
+		38, 449,
+		34, 451,
+		34, 504,
+		37, 508,
+		95, 536,
+		98, 533
+
+	};
+
+	App->physics->CreateChain(0, 0, map10, 16, 0);
+	
+	int map11[16] = {
+		220, 531,
+		277, 503,
+		277, 450,
+		279, 448,
+		282, 448,
+		282, 506,
+		222, 536,
+		219, 534
+	};
+
+	App->physics->CreateChain(0, 0, map11, 16, 0);
 
 
 	//diglet
