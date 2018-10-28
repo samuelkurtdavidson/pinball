@@ -105,7 +105,7 @@ update_status ModulePlayer::Update()
 	//sprintf
 	
 	sprintf_s(scoreText, 10, "%d", score);
-	App->fonts->BlitText(97, 49, fontscore, scoreText);
+	App->fonts->BlitText(200, 10, fontscore, scoreText);
 
 	return UPDATE_CONTINUE;
 }
