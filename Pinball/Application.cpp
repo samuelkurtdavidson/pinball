@@ -36,12 +36,13 @@ Application::Application()
 	AddModule(input);
 	AddModule(audio);
 	
-	AddModule(fonts);
 	// Scenes
 	AddModule(scene_intro);
 	
 	// Player
 	AddModule(player);
+
+	AddModule(fonts);
 }
 
 Application::~Application()

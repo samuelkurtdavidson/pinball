@@ -21,18 +21,18 @@ class ModuleFonts : public Module
 public:
 
 	ModuleFonts(Application* app, bool start_enabled = true);
-	virtual ~ModuleFonts();
+	~ModuleFonts();
 
 	// Load Font
 	int Load(const char* texture_path, const char* characters, uint rows = 1);
-	void Unload(int font_id);
+	void UnLoad(int font_id);
 
 	// Create a surface from text
-	void BlitText(int x, int y, int bmp_font_id, const char* text, float scale = 1.0f) const;
+	void BlitText(int x, int y, int bmp_font_id, const char* text) const;
 
 private:
 
-	Font	 fonts[MAX_FONTS];
+	Font fonts[MAX_FONTS];
 };
 
 
