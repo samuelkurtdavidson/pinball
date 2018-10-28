@@ -83,11 +83,13 @@ update_status ModulePlayer::Update()
 
 	//Flippers Draw------
 
-	kickerright->GetPosition(position.x, position.y);
-	App->renderer->Blit(TextureRkicker, position.x, position.y, NULL, 1.0f, kickerright->GetRotation(), PIXEL_TO_METERS(0), PIXEL_TO_METERS(0));
+	int x, y;
+	kickerright->GetPosition(x, y);
+	App->renderer->Blit(TextureRkicker, x, y, NULL, 1.0f, kickerright->GetRotation());
 
-	kickerleft->GetPosition(position.x, position.y);
-	App->renderer->Blit(textureLKicker, position.x, position.y, NULL, 1.0f, kickerleft->GetRotation(), PIXEL_TO_METERS(0), PIXEL_TO_METERS(0));
+	kickerleft->GetPosition(x, y);
+	App->renderer->Blit(textureLKicker, x, y, NULL, 1.0f, kickerleft->GetRotation());
+
 
 	//Ball Draw--------------------
 	ball->GetPosition(position.x, position.y);
@@ -113,14 +115,19 @@ void ModulePlayer::OnCollision(PhysBody * body_A, PhysBody * body_B)
 
 void ModulePlayer::rightkicker() {
 
-	kickerright = App->physics->CreateRectangle(205, 533, 50, 10, b2_dynamicBody, 1.2f);
-	kickerrightpivot = App->physics->CreateCircle(205, 533, 6, b2_staticBody);
+	kickerright = App->physics->CreateRectangle(180, 483, 50, 10, b2_dynamicBody, 1.2f);
+	kickerrightpivot = App->physics->CreateCircle(205, 530, 7, b2_staticBody);
+
 	b2RevoluteJointDef revoluteJointDef;
+
 	revoluteJointDef.bodyA = kickerright->body;
 	revoluteJointDef.bodyB = kickerrightpivot->body;
+
 	kickerright->body->SetGravityScale(10.0f);
-	revoluteJointDef.localAnchorA.Set(PIXEL_TO_METERS(15), 0);
-	revoluteJointDef.localAnchorB.Set(0, 0);
+
+	revoluteJointDef.localAnchorA.Set(PIXEL_TO_METERS(15), PIXEL_TO_METERS(0));
+	revoluteJointDef.localAnchorB.Set(PIXEL_TO_METERS(0), PIXEL_TO_METERS(0));
+
 	revoluteJointDef.collideConnected = false;
 	revoluteJointDef.enableLimit = true;
 	revoluteJointDef.upperAngle = 35 * DEGTORAD;
@@ -171,4 +178,5 @@ void ModulePlayer::leftkicker() {
 	kickerleftjoint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&revoluteJointDef);
 
 }
+
 
