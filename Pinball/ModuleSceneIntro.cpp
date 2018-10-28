@@ -36,6 +36,8 @@ bool ModuleSceneIntro::Start()
 	rail3 = App->textures->Load("pinball/rail3.png");
 	shootsunny = App->textures->Load("pinball/shoot_sunny.png");
 
+	bonus_fx = App->audio->LoadFx("pinball/hit.wav");
+
 	SetScores();
 
 	if (!background_created)
@@ -422,10 +424,11 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 		for (scores; scores != nullptr; scores = scores->next) {
 			if (scores->data == bodyB || scores->data == bodyA) {
 				scores->data->active = true;
+				App->audio->PlayFx(bonus_fx);
 			}
 		}
 	}
-	App->audio->PlayFx(bonus_fx);
+	
 }
 
 void ModuleSceneIntro::SetBall(int x, int y)
