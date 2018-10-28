@@ -333,6 +333,12 @@ void ModuleSceneIntro::SetScores()
 
 	score_list.add(App->physics->CreateRectangleSensor(282, 300, 20, 20));
 	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(40, 450, 10, 2));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(265, 450, 10, 2));
+	score_list.getLast()->data->listener = this;
 }
 
 void ModuleSceneIntro::UpdateScores()
