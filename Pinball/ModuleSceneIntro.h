@@ -12,38 +12,21 @@ public:
 	ModuleSceneIntro(Application* app, bool start_enabled = true);
 	~ModuleSceneIntro();
 
+	bool background_created = false;
+
 	bool Start();
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
 
 public:
-	/*p2List<PhysBody*> circles;
+	p2List<PhysBody*> circles;
 	p2List<PhysBody*> boxes;
 	p2List<PhysBody*> ricks;
 
-	SDL_Texture* circle;
-	SDL_Texture* box;
-	SDL_Texture* rick;*/
+	SDL_Texture* map_tex;
+	SDL_Texture* colliders_tex;
+	SDL_Texture* colliderLeft;
+	SDL_Texture* colliderRight;
 	uint bonus_fx;
-	PhysBody* maps;
-	p2List<PhysBody*> bouncers;
-	p2List<PhysBody*> sensors;
-
-	PhysBody* leftflipper;
-	PhysBody* rightflipper;
-
-	bool dead = false;
-	bool sensed;
-	int font_score = -1;
-	char score_text[10];
-
-private:
-
-	void PinballGround();
-	void setScores();
-	void AddBouncers();
-	void UpdateSensors();
-	void PlayerLives();
-	void SceneChange();
 };
