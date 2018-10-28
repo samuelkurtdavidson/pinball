@@ -26,11 +26,11 @@ bool ModulePlayer::Start()
 	TexturePusher = App->textures->Load("pinball/pusher.png");
 	points = 0;
 	lives = 3;
-	
 	leftkicker();
 	rightkicker();
 	pusherfunc();
 	ballposition(PLAYER_POS_X, PLAYER_POS_Y);
+	hitsound = App->audio->LoadFx("pinball/points.wav");
 
 	return true;
 }
@@ -49,39 +49,38 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN)
 	{
 		kickerrightjoint->EnableMotor(true);
+		App->audio->PlayFx(hitsound);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_UP)
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_UP)
 	{
 		kickerrightjoint->EnableMotor(false);
+		App->audio->PlayFx(hitsound);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
 	{
 		kickerleftjoint->EnableMotor(true);
+		App->audio->PlayFx(hitsound);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_UP)
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_UP)
 	{
 		kickerleftjoint->EnableMotor(false);
+		App->audio->PlayFx(hitsound);
 	}
 
 
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
 	{
-
 		pusherjoint->EnableMotor(true);
 	}
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_UP)
+	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_UP)
 	{
 
 		pusherjoint->EnableMotor(false);
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
-	{
-		ballposition(PLAYER_POS_X, PLAYER_POS_Y);
-	}
 	//Flippers Draw------
 
 	kickerright->GetPosition(position.x, position.y);

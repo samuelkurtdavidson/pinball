@@ -352,7 +352,7 @@ update_status ModuleSceneIntro::Update()
 	p2List_item<PhysBody*>* c = circles.getFirst();
 
 	App->player->ball->GetPosition(pos.x, pos.y);
-		if (pos.y > 535) {
+		if (pos.y > 540) {
 			if (App->player->lives > 0)
 			{
 				App->player->lives--;

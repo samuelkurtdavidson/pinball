@@ -23,6 +23,7 @@ public:
 
 	uint points;
 	uint lives;
+	uint hitsound;
 
 	SDL_Texture* textureball;
 	SDL_Texture* textureLKicker;
@@ -32,6 +33,7 @@ public:
 	iPoint position;
 	
 	PhysBody* ball;
+
 
 private:
 
