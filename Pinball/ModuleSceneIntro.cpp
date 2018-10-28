@@ -269,6 +269,33 @@ bool ModuleSceneIntro::Start()
 
 	App->physics->CreateChain(0, 0, map11, 16, 0);
 
+	int map12[16] = {
+		186, 90,
+		186, 66,
+		189, 62,
+		195, 62,
+		198, 66,
+		198, 90,
+		195, 94,
+		190, 94
+
+	};
+
+	App->physics->CreateChain(0, 0, map12, 16, 0);
+
+	int map13[16] = {
+		216, 86,
+		216, 61,
+		219, 58,
+		224, 58,
+		228, 64,
+		228, 86,
+		224, 90,
+		219, 90
+	};
+
+	App->physics->CreateChain(0, 0, map13, 16, 0);
+
 
 	//diglet
 	//App->physics->CreateBouncer(60, 365, 15, 1.4f);
