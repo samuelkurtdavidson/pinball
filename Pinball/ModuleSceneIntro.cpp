@@ -27,6 +27,13 @@ bool ModuleSceneIntro::Start()
 	colliders_tex = App->textures->Load("pinball/background_collision.png");
 	colliderLeft = App->textures->Load("pinball/colliderleft.png");
 	colliderRight = App->textures->Load("pinball/colliderright.png");
+	tube1 = App->textures->Load("pinball/tube1.png");
+	tube2 = App->textures->Load("pinball/tube2.png");
+	rail1 = App->textures->Load("pinball/rail1.png");
+	rail2 = App->textures->Load("pinball/rail2.png");
+	rail3 = App->textures->Load("pinball/rail3.png");
+	shootsunny = App->textures->Load("pinball/shoot_sunny.png");
+
 
 	if (!background_created)
 		background_created = true;
@@ -270,17 +277,6 @@ bool ModuleSceneIntro::Start()
 	App->physics->CreateChain(0, 0, map11, 16, 0);
 
 
-	//diglet
-	//App->physics->CreateBouncer(60, 365, 15, 1.4f);
-	//App->physics->CreateBouncer(268, 365, 15, 1.4f);
-	////voltorb
-	//App->physics->CreateBouncer(135, 159, 15, 1.4f);
-	//App->physics->CreateBouncer(183, 139, 15, 1.4f);
-	//App->physics->CreateBouncer(170, 199, 15, 1.4f);
-
-	//App->physics->CreateBouncer(27, 520, 15, 3.8f);
-	//App->physics->CreateBouncer(290, 518, 15, 3.8f);
-
 	return ret;
 }
 
@@ -292,6 +288,12 @@ bool ModuleSceneIntro::CleanUp()
 	App->textures->Unload(colliders_tex);
 	App->textures->Unload(colliderLeft);
 	App->textures->Unload(colliderRight);
+	App->textures->Unload(tube1);
+	App->textures->Unload(tube2);
+	App->textures->Unload(rail1);
+	App->textures->Unload(rail2);
+	App->textures->Unload(rail3);
+	App->textures->Unload(shootsunny);
 	return true;
 }
 
@@ -304,59 +306,13 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(colliders_tex, 6, 6, NULL, 1.0f);
 		App->renderer->Blit(colliderLeft, 60, 440, NULL, 1.0f);
 		App->renderer->Blit(colliderRight, 220, 440, NULL, 1.0f);
+		App->renderer->Blit(tube1, 220, 100, NULL, 1.0f);
+		App->renderer->Blit(tube2, 220, 100, NULL, 1.0f);
+		App->renderer->Blit(rail1, 30, 20, NULL, 1.0f);
+		App->renderer->Blit(rail2, 30, 20, NULL, 1.0f);
+		App->renderer->Blit(rail3, 253, 190, NULL, 1.0f);
+		App->renderer->Blit(shootsunny, 0, 15, NULL, 1.0f);
 	}
-
-
-
-
-	/*if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
-	{
-	circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 10, b2_dynamicBody));
-	circles.getLast()->data->listener = this;
-	}*/
-
-
-
-	/*if(App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
-	{
-	// Pivot 0, 0
-	int rick_head[64] = {
-	14, 36,
-	42, 40,
-	40, 0,
-	75, 30,
-	88, 4,
-	94, 39,
-	111, 36,
-	104, 58,
-	107, 62,
-	117, 67,
-	109, 73,
-	110, 85,
-	106, 91,
-	109, 99,
-	103, 104,
-	100, 115,
-	106, 121,
-	103, 125,
-	98, 126,
-	95, 137,
-	83, 147,
-	67, 147,
-	53, 140,
-	46, 132,
-	34, 136,
-	38, 126,
-	23, 123,
-	30, 114,
-	10, 102,
-	29, 90,
-	0, 75,
-	30, 62
-	};
-
-	ricks.add(App->physics->CreateChain(App->input->GetMouseX(), App->input->GetMouseY(), rick_head, 64,0));
-	}*/
 
 	// Prepare for raycast ------------------------------------------------------
 
@@ -366,34 +322,6 @@ update_status ModuleSceneIntro::Update()
 
 	// All draw functions ------------------------------------------------------
 	p2List_item<PhysBody*>* c = circles.getFirst();
-
-	/*while (c != NULL)
-	{
-		int x, y;
-		c->data->GetPosition(x, y);
-		App->renderer->Blit(circle, x, y, NULL, 1.0f, c->data->GetRotation());
-		c = c->next;
-	}
-
-	c = boxes.getFirst();
-
-	while (c != NULL)
-	{
-		int x, y;
-		c->data->GetPosition(x, y);
-		App->renderer->Blit(box, x, y, NULL, 1.0f, c->data->GetRotation());
-		c = c->next;
-	}
-
-	c = ricks.getFirst();
-
-	while (c != NULL)
-	{
-		int x, y;
-		c->data->GetPosition(x, y);
-		App->renderer->Blit(rick, x, y, NULL, 1.0f, c->data->GetRotation());
-		c = c->next;
-	}*/
 
 	return UPDATE_CONTINUE;
 }

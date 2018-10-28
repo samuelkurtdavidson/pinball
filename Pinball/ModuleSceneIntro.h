@@ -28,5 +28,11 @@ public:
 	SDL_Texture* colliders_tex;
 	SDL_Texture* colliderLeft;
 	SDL_Texture* colliderRight;
+	SDL_Texture* tube1;
+	SDL_Texture* tube2;
+	SDL_Texture* rail1;
+	SDL_Texture* rail2;
+	SDL_Texture* rail3;
+	SDL_Texture* shootsunny;
 	uint bonus_fx;
 };
