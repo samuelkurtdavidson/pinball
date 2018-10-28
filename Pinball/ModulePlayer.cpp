@@ -100,7 +100,7 @@ update_status ModulePlayer::Update()
 
 void ModulePlayer::ballposition(uint x, uint y)
 {
-	ball = App->physics->CreateCircle(x, y, 10, b2_dynamicBody);
+	ball = App->physics->CreateCircle(x, y - 12, 7, b2_dynamicBody);
 	ball->listener = this;
 }
 
