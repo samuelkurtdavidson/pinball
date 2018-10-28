@@ -35,6 +35,7 @@ bool ModuleSceneIntro::Start()
 	rail3 = App->textures->Load("pinball/rail3.png");
 	shootsunny = App->textures->Load("pinball/shoot_sunny.png");
 
+	SetScores();
 
 	if (!background_created)
 		background_created = true;
@@ -308,6 +309,48 @@ bool ModuleSceneIntro::Start()
 	return ret;
 }
 
+void ModuleSceneIntro::SetScores()
+{
+	App->player->score = 0;
+
+	score_list.add(App->physics->CreateRectangleSensor(90, 210, 20, 20));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(171, 71, 8, 15));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(202, 62, 8, 15));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(232, 62, 8, 15));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(200, 230, 8, 15));
+	score_list.getLast()->data->listener = this;
+
+	score_list.add(App->physics->CreateRectangleSensor(282, 300, 20, 20));
+	score_list.getLast()->data->listener = this;
+}
+
+void ModuleSceneIntro::UpdateScores()
+{
+	if (scored)
+	{
+		App->player->score += 100;
+	}
+
+	for (p2List_item<PhysBody*>* score = score_list.getFirst(); score != nullptr; score = score->next)
+	{
+		if (score->data->active)
+		{
+			scored = true;
+			score->data->active = false;
+		}
+
+
+	}
+}
+
 // Load assets
 bool ModuleSceneIntro::CleanUp()
 {
@@ -342,6 +385,8 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(shootsunny, 0, 15, NULL, 1.0f);
 	}
 
+	UpdateScores();
+
 	// Prepare for raycast ------------------------------------------------------
 
 	iPoint mouse;
@@ -368,6 +413,16 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
+	if (bodyB) {
+		p2List_item<PhysBody*>* scores;
+		scores = App->scene_intro->score_list.getFirst();
+
+		for (scores; scores != nullptr; scores = scores->next) {
+			if (scores->data == bodyB) {
+				scores->data->active = true;
+			}
+		}
+	}
 	App->audio->PlayFx(bonus_fx);
 }
 

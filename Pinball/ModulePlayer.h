@@ -33,7 +33,7 @@ public:
 	iPoint position;
 	
 	PhysBody* ball;
-
+	int score;
 
 private:
 

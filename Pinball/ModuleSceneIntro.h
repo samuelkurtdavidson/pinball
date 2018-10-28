@@ -19,6 +19,11 @@ public:
 	bool CleanUp();
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
 	void SetBall(int x, int y);
+	void SetScores();
+	void UpdateScores();
+
+	p2List<PhysBody*> score_list;
+	bool scored = false;
 
 public:
 	p2List<PhysBody*> circles;
