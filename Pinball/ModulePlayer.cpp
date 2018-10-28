@@ -124,7 +124,7 @@ void ModulePlayer::OnCollision(PhysBody * body_A, PhysBody * body_B)
 void ModulePlayer::rightkicker() {
 
 	kickerright = App->physics->CreateRectangle(180, 483, 50, 10, b2_dynamicBody, 1.2f);
-	kickerrightpivot = App->physics->CreateCircle(205, 530, 7, b2_staticBody);
+	kickerrightpivot = App->physics->CreateCircle(208, 535, 7, b2_staticBody);
 
 	b2RevoluteJointDef revoluteJointDef;
 
@@ -138,8 +138,8 @@ void ModulePlayer::rightkicker() {
 
 	revoluteJointDef.collideConnected = false;
 	revoluteJointDef.enableLimit = true;
-	revoluteJointDef.upperAngle = 35 * DEGTORAD;
-	revoluteJointDef.lowerAngle = -30 * DEGTORAD;
+	revoluteJointDef.upperAngle = 25 * DEGTORAD;
+	revoluteJointDef.lowerAngle = -20 * DEGTORAD;
 	revoluteJointDef.motorSpeed = -2000.0f * DEGTORAD;
 	revoluteJointDef.maxMotorTorque = 1500.0f;
 	revoluteJointDef.enableMotor = false;
@@ -161,7 +161,7 @@ void ModulePlayer::pusherfunc() {
 	prismaticJointDef.lowerTranslation = 0;
 	prismaticJointDef.upperTranslation = PIXEL_TO_METERS(50);
 	prismaticJointDef.enableMotor = false;
-	prismaticJointDef.maxMotorForce = 75;
+	prismaticJointDef.maxMotorForce = 80;
 	prismaticJointDef.motorSpeed = 5000;
 	pusherjoint = (b2PrismaticJoint*)App->physics->world->CreateJoint(&prismaticJointDef);
 }
@@ -169,7 +169,7 @@ void ModulePlayer::pusherfunc() {
 void ModulePlayer::leftkicker() {
 
 	kickerleft = App->physics->CreateRectangle(142, 483, 50, 10, b2_dynamicBody, 1.2f);//210 741
-	kickerleftpivot = App->physics->CreateCircle(108, 533, 7, b2_staticBody);
+	kickerleftpivot = App->physics->CreateCircle(104, 535, 7, b2_staticBody);
 	b2RevoluteJointDef revoluteJointDef;
 	revoluteJointDef.bodyA = kickerleft->body;
 	revoluteJointDef.bodyB = kickerleftpivot->body;
@@ -178,8 +178,8 @@ void ModulePlayer::leftkicker() {
 	revoluteJointDef.localAnchorB.Set(0, 0);
 	revoluteJointDef.collideConnected = false;
 	revoluteJointDef.enableLimit = true;
-	revoluteJointDef.upperAngle = 35 * DEGTORAD;
-	revoluteJointDef.lowerAngle = -30 * DEGTORAD;
+	revoluteJointDef.upperAngle = 25 * DEGTORAD;
+	revoluteJointDef.lowerAngle = -20 * DEGTORAD;
 	revoluteJointDef.motorSpeed = 2000.0f * DEGTORAD;
 	revoluteJointDef.maxMotorTorque = 1500.0f;
 	revoluteJointDef.enableMotor = false;
