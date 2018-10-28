@@ -30,8 +30,8 @@ Application::Application()
 
 	// Main Modules
 	AddModule(window);
-	AddModule(renderer);
 	AddModule(physics);
+	AddModule(renderer);
 	AddModule(textures);
 	AddModule(input);
 	AddModule(audio);

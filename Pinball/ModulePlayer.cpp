@@ -135,7 +135,7 @@ void ModulePlayer::rightkicker() {
 
 void ModulePlayer::pusherfunc() {
 
-	pusher = App->physics->CreateRectangle(PLAYER_POS_X, PLAYER_POS_Y + 20, 20, 40, b2_dynamicBody, 0);
+	pusher = App->physics->CreateRectangle(PLAYER_POS_X, PLAYER_POS_Y + 20, 20, 30, b2_dynamicBody, 0);
 	pusherpivot = App->physics->CreateRectangle(PLAYER_POS_X, PLAYER_POS_Y + 50, 12, 20, b2_staticBody, 0);
 	b2PrismaticJointDef prismaticJointDef;
 	prismaticJointDef.bodyA = pusher->body;
@@ -148,7 +148,7 @@ void ModulePlayer::pusherfunc() {
 	prismaticJointDef.lowerTranslation = 0;
 	prismaticJointDef.upperTranslation = PIXEL_TO_METERS(50);
 	prismaticJointDef.enableMotor = false;
-	prismaticJointDef.maxMotorForce = 700;
+	prismaticJointDef.maxMotorForce = 75;
 	prismaticJointDef.motorSpeed = 5000;
 	pusherjoint = (b2PrismaticJoint*)App->physics->world->CreateJoint(&prismaticJointDef);
 }
